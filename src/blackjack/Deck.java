@@ -8,7 +8,7 @@ import java.util.Map;
 
 public class Deck {
 	private List<String> remainingCards = new ArrayList<>();
-	
+
 	public Deck() {
 		Card c = new Card();
 
@@ -16,13 +16,10 @@ public class Deck {
 			remainingCards.add(key);
 		}
 	}
-	
-	public String getCard(){
+
+	public String getCard() {
 		Collections.shuffle(remainingCards);
-		System.out.println(remainingCards);
 		return remainingCards.remove(0);
 	}
-	
 
-		
 }

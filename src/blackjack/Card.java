@@ -13,7 +13,7 @@ public class Card {
 	public Card() {
 		addRanks();
 		addSuits();
-		
+
 		for (String s : suit) {
 			for (String r : rank) {
 				int cardValue = 1;
@@ -22,11 +22,11 @@ public class Card {
 			}
 		}
 	}
-	
-	public Map<String, Integer> getCards(){
+
+	public Map<String, Integer> getCards() {
 		return cards;
 	}
-	
+
 	private void addRanks() {
 		rank.add("1");
 		rank.add("2");
