@@ -8,18 +8,19 @@ import java.util.Map;
 
 public class Deck {
 	private List<String> remainingCards = new ArrayList<>();
-
+	private Card c = new Card();
+	
 	public Deck() {
-		Card c = new Card();
 
 		for (String key : c.getCards().keySet()) {
 			remainingCards.add(key);
 		}
 	}
 
-	public String getCard() {
+	public String giveCard() {
 		Collections.shuffle(remainingCards);
 		return remainingCards.remove(0);
 	}
+
 
 }

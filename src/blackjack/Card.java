@@ -15,8 +15,14 @@ public class Card {
 		addSuits();
 
 		for (String s : suit) {
+			int cardValue = 1;
 			for (String r : rank) {
-				int cardValue = 1;
+				if(r.equals("J") || r.equals("Q")  || r.equals("K")  ){
+					cardValue = 10;
+				}
+				if(r.equals("A")){
+					cardValue = 11;
+				}
 				cards.put(r + "" + s, cardValue);
 				cardValue++;
 			}
@@ -25,6 +31,10 @@ public class Card {
 
 	public Map<String, Integer> getCards() {
 		return cards;
+	}
+	
+	public int giveValue(String key){
+		return cards.get(key);
 	}
 
 	private void addRanks() {
