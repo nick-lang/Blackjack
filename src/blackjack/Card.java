@@ -55,10 +55,10 @@ public class Card {
 	}
 
 	private void addSuits() {
-		suit.add("C");
-		suit.add("D");
-		suit.add("H");
-		suit.add("S");
+		suit.add("\u2663");
+		suit.add("\u2662");
+		suit.add("\u2661");
+		suit.add("\u2660");
 	}
 
 }
