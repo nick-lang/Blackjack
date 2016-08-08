@@ -15,7 +15,7 @@ public class Card {
 		addSuits();
 
 		for (String s : suit) {
-			int cardValue = 1;
+			int cardValue = 2;
 			for (String r : rank) {
 				if (r.equals("J") || r.equals("Q") || r.equals("K")) {
 					cardValue = 10;
@@ -38,7 +38,6 @@ public class Card {
 	}
 
 	private void addRanks() {
-		rank.add("1");
 		rank.add("2");
 		rank.add("3");
 		rank.add("4");

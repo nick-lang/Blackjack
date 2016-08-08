@@ -66,7 +66,7 @@ public class BlackjackTable {
 
 				System.out.print("Dealer hand: ");
 				dealerHand.displayHand();
-				System.out.println("X \n");
+				System.out.println("\n");
 				break;
 
 			case 2:
