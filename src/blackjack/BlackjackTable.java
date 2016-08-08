@@ -35,6 +35,15 @@ public class BlackjackTable {
 
 		addToDealer(dealerHand, d);
 		System.out.println();
+		
+		if(playerHand.getHandValue() == 21){
+			System.out.println("You win!");
+			System.exit(0);
+		}
+		else if (dealerHand.getHandValue() == 21) {
+			System.out.println("You lose.");
+			System.exit(0);
+		}
 
 		while (gameOver == false) {
 			int choice = 1;
