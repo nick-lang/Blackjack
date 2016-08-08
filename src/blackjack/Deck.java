@@ -13,10 +13,10 @@ public class Deck {
 		for (String key : c.getCards().keySet()) {
 			remainingCards.add(key);
 		}
+		Collections.shuffle(remainingCards);
 	}
 
 	public String giveCard() {
-		Collections.shuffle(remainingCards);
 		return remainingCards.remove(0);
 	}
 
