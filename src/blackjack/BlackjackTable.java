@@ -3,19 +3,19 @@ package blackjack;
 import java.util.Scanner;
 
 public class BlackjackTable {
-	
-	private void addToPlayer(Hand playerHand, Deck d){
+
+	private void addToPlayer(Hand playerHand, Deck d) {
 		playerHand.getCard(d.giveCard());
 		System.out.print("Player hand: ");
 		playerHand.displayHand();
 	}
-	private void addToDealer(Hand dealerHand, Deck d){
+
+	private void addToDealer(Hand dealerHand, Deck d) {
 		dealerHand.getCard(d.giveCard());
 		System.out.print("Dealer hand: ");
 		dealerHand.displayHand();
 	}
-	
-	
+
 	public void playGame() {
 		Scanner keyboard = new Scanner(System.in);
 
@@ -23,8 +23,7 @@ public class BlackjackTable {
 		Deck d = new Deck();
 		Hand playerHand = new Hand();
 		Hand dealerHand = new Hand();
-		
-		
+
 		addToPlayer(playerHand, d);
 		System.out.println();
 
@@ -34,9 +33,8 @@ public class BlackjackTable {
 		addToPlayer(playerHand, d);
 		System.out.println();
 
-		System.out.print("Dealer hand: ");
-		dealerHand.displayHand();
-		System.out.println("X \n");
+		addToDealer(dealerHand, d);
+		System.out.println();
 
 		while (gameOver == false) {
 			int choice = 1;
@@ -51,8 +49,7 @@ public class BlackjackTable {
 					System.out.println("You win!");
 					gameOver = true;
 					break;
-				}
-				else if(playerHand.getHandValue() > 21){
+				} else if (playerHand.getHandValue() > 21) {
 					System.out.println("You lose.");
 					gameOver = true;
 					break;
@@ -67,17 +64,19 @@ public class BlackjackTable {
 				while (dealerHand.getHandValue() < 17 && gameOver == false) {
 					addToDealer(dealerHand, d);
 					System.out.println();
-					if(dealerHand.getHandValue() > 21){
+					if (dealerHand.getHandValue() > 21) {
 						System.out.println("You win!");
 						gameOver = true;
-					}
-					if (dealerHand.getHandValue() > playerHand.getHandValue()) {
-						System.out.println("You lose.");
+					} else if (dealerHand.getHandValue() > playerHand.getHandValue()
+							&& dealerHand.getHandValue() <= 21) {
 						gameOver = true;
 					}
 				}
-				if(dealerHand.getHandValue() <= playerHand.getHandValue()){
+				if (dealerHand.getHandValue() <= playerHand.getHandValue()) {
 					System.out.println("You win!");
+					gameOver = true;
+				} else if (dealerHand.getHandValue() > playerHand.getHandValue() && dealerHand.getHandValue() <= 21) {
+					System.out.println("You lose.");
 					gameOver = true;
 				}
 				break;
@@ -88,5 +87,6 @@ public class BlackjackTable {
 			}
 
 		}
+		keyboard.close();
 	}
 }
